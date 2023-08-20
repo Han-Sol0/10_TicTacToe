@@ -1,17 +1,22 @@
-import PropTypes from 'prop-types';
 import { Field, Information } from './components';
 import styles from './game.module.css';
+import { Component } from 'react';
 
-export const GameLayout = ({ handleRestart }) => (
-	<div className={styles.game}>
-		<Information />
-		<Field />
-		<button className={styles.restartButton} onClick={handleRestart}>
-			Начать заново
-		</button>
-	</div>
-);
+export class GameLayout extends Component {
+	constructor(props) {
+		super(props);
+		this.handleRestart = this.props.handleRestart.bind(this);
+	}
 
-GameLayout.propTypes = {
-	handleRestart: PropTypes.func,
-};
+	render() {
+		return (
+			<div className={styles.game}>
+				<Information />
+				<Field />
+				<button className={styles.restartButton} onClick={this.handleRestart}>
+					Начать заново
+				</button>
+			</div>
+		);
+	}
+}

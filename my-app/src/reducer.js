@@ -26,7 +26,6 @@ export const reducer = (state = initialState, { type, payload }) => {
 				status: payload,
 			};
 		case ACTION_TYPE.RESTART_GAME:
-			console.log('1234');
 			return initialState;
 		default:
 			return state;
